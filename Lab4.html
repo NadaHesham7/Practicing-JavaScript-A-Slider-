@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image {
+            display: flex;
+            /* align-items: center; */
+            justify-content: center;
+        }
+
+        .buttons {
+            display: flex;
+            /* align-items: center; */
+            justify-content: center;
+        }
+
+        .sections {
+            padding: 100px 0;
+            /* border: 3px solid green; */
+            text-align: center;
+
+        }
+
+        .border {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            border: solid white 2px;
+            margin: 100px 500px;
+            padding: 30px 30px;
+            width: 30%;
+            background-color: rgb(193, 188, 188);
+            border-radius: 16px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <section class="sections">
+        <div class="border">
+            <div class="image"> <img class="photo" src="1.jpg" width="200"> </div>
+            <div class="buttons">
+                <button
+                    style="color:white; background-color:rgb(166, 88, 238); border: solid rgb(193, 188, 188) 1px; border-radius: 6px; padding:10px;"
+                    onclick="clearInterval(timer)">
+                    Stop Slider
+                </button>
+                <button
+                    style="color:white; background-color:rgb(166, 88, 238); border: solid rgb(193, 188, 188) 1px; border-radius: 6px; padding:10px;"
+                    onclick="SlideShow()">
+                    Show Slider
+                </button>
+                <button
+                    style="color:white; background-color:rgb(166, 88, 238); border: solid rgb(193, 188, 188) 1px; border-radius: 6px; padding:10px;"
+                    onclick="changeOneImgback()">
+                    Prior Photo
+                </button>
+                <button
+                    style="color:white; background-color:rgb(166, 88, 238); border: solid rgb(193, 188, 188) 1px; border-radius: 6px; padding:10px;"
+                    onclick="changeOneImg()">
+                    Next Photo
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        var theGallery = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+        var i = 0;
+        function changeOneImg() {
+            if (i < 5) {
+                i++;
+                document.getElementsByTagName('img')[0].src = theGallery[i];
+            } else {
+                i = 0;
+                document.getElementsByTagName('img')[0].src = theGallery[i];
+            }
+
+
+        }
+        function changeOneImgback() {
+
+
+            if (i > 0 && i <= 5) {
+                i--;
+                document.getElementsByTagName('img')[0].src = theGallery[i];
+            } else {
+                i = 5;
+                document.getElementsByTagName('img')[0].src = theGallery[i];
+            }
+        }
+        var timer;
+        function SlideShow() {
+            timer = setInterval(function () {
+                if (i < 5) {
+                    i++;
+                    document.getElementsByTagName('img')[0].src = theGallery[i];
+                } else {
+                    i = 0;
+                    document.getElementsByTagName('img')[0].src = theGallery[i];
+                }
+            }, 500);
+
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
